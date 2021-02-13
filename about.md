@@ -1,15 +1,12 @@
 ---
-layout: page
-title: About
+layout: about
 ---
-Pythonista, Mechanical Engineer, Interested in Computer Science, Robotics & Business.
 
-*   [Linkedin](https://www.linkedin.com/in/yashgoyal07/)
-*   [Github](https://github.com/yashgoyal07)
-*   [Twitter](https://twitter.com/yashgoyal_07)
+# About the blog
 
-Quote:
+In this blog, I frequently write about the scripts that I create, either to automate stuff on my computer, or to improve my productivity. I am a Data Scientist by profession, and so I also write posts related to that field.
 
-> It is our CHOICES that show what we TRULY are far more than our ABILITIES.
-> 
-> ~ Albus Dumbledore
+# Contact
+
+If you want to reach out, feel free to contact me via [Twitter](https://twitter.com/sainathadapa) or [LinkedIn](https://linkedin.com/in/sainathadapa).
+
