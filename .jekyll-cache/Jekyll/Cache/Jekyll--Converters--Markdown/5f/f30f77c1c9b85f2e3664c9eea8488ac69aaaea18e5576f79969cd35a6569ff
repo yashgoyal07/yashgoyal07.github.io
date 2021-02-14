@@ -1,0 +1,14 @@
+I"_<h1 id="projects">Projects</h1>
+
+<p>Some of my projects:</p>
+
+<h2 id="2019">2019</h2>
+<ul>
+  <li><a href="https://github.com/sainathadapa/urban-sound-tagging">DCASE 2019 - Task 5 - Urban Sound Tagging</a>: 1st position, <a href="https://arxiv.org/abs/1909.12699">Workshop paper</a> that describes my solution. <a href="https://docs.google.com/presentation/d/18wY7ptO7AY7u8CMGvVByL770CxE4aZhayEd4cR8gG2Q/edit?usp=sharing">Slides</a> for my talk at DCASE Workshop 2019.</li>
+  <li><a href="https://github.com/sainathadapa/mediaeval-2019-moodtheme-detection">MediaEval - The 2019 Emotion and Themes in Music using Jamendo</a></li>
+  <li>Attended the <a href="https://rlss.inria.fr/">Reinforcement Learning Summer SCOOL</a>, Université de Lille.</li>
+  <li><a href="https://github.com/sainathadapa/spotify-sequential-skip-prediction">Sequential Skip Prediction Challenge</a>: 7th position. <a href="https://github.com/sainathadapa/spotify-sequential-skip-prediction/blob/master/workshop-paper-source/paper.pdf">Workshop paper</a> was submitted to the <a href="http://www.wsdm-conference.org/2019/wsdm-cup-2019.php">WSDM Cup 2019</a> and was selected for poster presentation.</li>
+  <li><a href="https://github.com/sainathadapa/attention-primer-pytorch">sainathadapa/attention-primer-pytorch</a>: Some toy tasks/experiments to illustrate the concept of attention in machine learning, with heavy reference to Vaswani et al. (2017). Fork of <code class="highlighter-rouge">greentfrapp/attention-primer</code> with Tensorflow code replaced with PyTorch. All credit goes to <code class="highlighter-rouge">@greentfrapp</code>.</li>
+</ul>
+
+:ET

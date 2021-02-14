@@ -1,0 +1,49 @@
+title: 'Yash Goyal | Blog'
+author: Yash Goyal
+email: yashgoyalcs@gmail.com
+url: https://yashgoyal07.github.io
+description: Pythonista, Mechanical Engineer, Interested in Computer Science, Robotics & Business.
+favicon: "./android-icon-48x48.png" # set the favicon of the site 
+
+show_excerpts: false # set to true to show excerpts on the homepage
+  
+# Moving date format
+# refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
+moving:
+  avatar_url: "images/profile.jpg" # avatar in about page
+  about_you:
+  date_format: "%b %d" # date format of posts in home page
+  back_to: "Home" # In the post page, you have a back button above the title, you can custom the text by yourself.
+
+  # generate social links in about page.
+  social_links:
+    twitter: yashgoyal_07
+    github:  yashgoyal07
+    rss: RSS
+    # dribbble:
+    #facebook:
+    # flickr:
+    # instagram:
+    linkedin: yashgoyal07
+    # pinterest: 
+    # youtube: 
+    # youtube_channel: 
+    # youtube_channel_name: 
+    # telegram: 
+    # googleplus: 
+    # microdotblog: 
+    # reddit: 
+
+    # Mastodon instances
+    # mastodon:
+    # - username: 
+    #   instance: 
+    # - username: 
+    #   instance: 
+
+# Build settings
+theme: huangyz0918/moving # note, please use huangyz0918/moving if you want to publish to Github Pages.
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag

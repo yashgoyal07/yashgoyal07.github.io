@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" /><!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v4.0.1" />
+<meta property="og:title" content="Running R as a child process in NodeJS" />
+<meta name="author" content="Yash Goyal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A fun little script that runs R as a child process in NodeJS" />
+<meta property="og:description" content="A fun little script that runs R as a child process in NodeJS" />
+<link rel="canonical" href="http://localhost:4000/2014/11/01/running-r-as-nodejs-child-process.html" />
+<meta property="og:url" content="http://localhost:4000/2014/11/01/running-r-as-nodejs-child-process.html" />
+<meta property="og:site_name" content="Yash Goyal Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-11-01T00:00:00+05:30" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Running R as a child process in NodeJS" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2014/11/01/running-r-as-nodejs-child-process.html"},"headline":"Running R as a child process in NodeJS","author":{"@type":"Person","name":"Yash Goyal"},"url":"http://localhost:4000/2014/11/01/running-r-as-nodejs-child-process.html","description":"A fun little script that runs R as a child process in NodeJS","dateModified":"2014-11-01T00:00:00+05:30","datePublished":"2014-11-01T00:00:00+05:30","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="/./android-icon-48x48.png" />
+  <link rel="stylesheet" href="http://localhost:4000/assets/css/agate.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Yash Goyal | Blog" /></head><body>
+    <main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <article
+  class="post h-entry"
+  itemscope
+  itemtype="http://schema.org/BlogPosting"
+>
+  <head>
+    <title>Running R as a child process in NodeJS</title>
+  </head>
+  <header class="post-header">
+    <div class="post-back">
+      <a class="black-link" href="http://localhost:4000">
+        ← Home
+      </a>
+    </div>
+
+    <h1 class="post-title p-name" itemprop="name headline">
+      Running R as a child process in NodeJS
+    </h1>
+    <p class="post-meta">
+      <time
+        class="dt-published"
+        datetime="2014-11-01T00:00:00+05:30"
+        itemprop="datePublished"
+      >Nov 1, 2014
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>A fun little script that runs R as a child process in NodeJS.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">child_process</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">child_process</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">r_comm</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">R</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">rspawn</span> <span class="o">=</span> <span class="nx">child_process</span><span class="p">.</span><span class="nx">spawn</span><span class="p">(</span><span class="nx">r_comm</span><span class="p">,[</span><span class="dl">'</span><span class="s1">--vanilla</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">--slave</span><span class="dl">'</span><span class="p">]);</span>
+
+<span class="nx">rspawn</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">data</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">STDOUT: </span><span class="se">\n</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<span class="p">});</span>
+
+<span class="nx">rspawn</span><span class="p">.</span><span class="nx">stderr</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">data</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">STDERR: </span><span class="se">\n</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<span class="p">});</span>
+
+<span class="nx">rspawn</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">close</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">code</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">child process exited with code </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">code</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">stdin</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">openStdin</span><span class="p">();</span>
+
+<span class="nx">stdin</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">rspawn</span><span class="p">.</span><span class="nx">stdin</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Sample input &amp; output when the script is run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash&gt; nodejs running_R.js 
+<span class="nb">head</span><span class="o">(</span>cars,1<span class="o">)</span> <span class="c"># console input</span>
+STDOUT: 
+
+  speed dist
+1     4    2
+
+warning<span class="o">(</span><span class="s1">'this is a test'</span><span class="o">)</span> <span class="c"># console input</span>
+STDERR: 
+
+Warning message:
+this is a <span class="nb">test 
+
+</span>q<span class="o">()</span> <span class="c"># console input</span>
+child process exited with code 0
+bash&gt;
+</code></pre></div></div>
+
+
+  </div>
+
+  <a class="u-url" href="/2014/11/01/running-r-as-nodejs-child-process.html" hidden></a>
+</article>
+
+        </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/"></data>
+    <div class="wrapper">
+      <div class="footer-col-wrapper">
+        <div class="footer-col">
+          <ul class="contact-list">
+            <li class="p-name"><a class="black-link" href="http://localhost:4000/about.html">
+                  Yash Goyal 
+                </a></li><li>
+              <a class="u-email black-link" href="mailto:yashgoyalcs@gmail.com">yashgoyalcs@gmail.com</a></li></ul>
+        </div>
+      </div>
+    </div>
+  </footer></body>
+</html>

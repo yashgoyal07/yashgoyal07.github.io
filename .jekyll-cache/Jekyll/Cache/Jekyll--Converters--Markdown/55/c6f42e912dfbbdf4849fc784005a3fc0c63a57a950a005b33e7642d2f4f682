@@ -1,0 +1,48 @@
+I"×<p>A fun little script that runs R as a child process in NodeJS.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">child_process</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">child_process</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">r_comm</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">R</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">rspawn</span> <span class="o">=</span> <span class="nx">child_process</span><span class="p">.</span><span class="nx">spawn</span><span class="p">(</span><span class="nx">r_comm</span><span class="p">,[</span><span class="dl">'</span><span class="s1">--vanilla</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">--slave</span><span class="dl">'</span><span class="p">]);</span>
+
+<span class="nx">rspawn</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">data</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">STDOUT: </span><span class="se">\n</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<span class="p">});</span>
+
+<span class="nx">rspawn</span><span class="p">.</span><span class="nx">stderr</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">data</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">STDERR: </span><span class="se">\n</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<span class="p">});</span>
+
+<span class="nx">rspawn</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">close</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">code</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">child process exited with code </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">code</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">stdin</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">openStdin</span><span class="p">();</span>
+
+<span class="nx">stdin</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">rspawn</span><span class="p">.</span><span class="nx">stdin</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Sample input &amp; output when the script is run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash&gt; nodejs running_R.js 
+<span class="nb">head</span><span class="o">(</span>cars,1<span class="o">)</span> <span class="c"># console input</span>
+STDOUT: 
+
+  speed dist
+1     4    2
+
+warning<span class="o">(</span><span class="s1">'this is a test'</span><span class="o">)</span> <span class="c"># console input</span>
+STDERR: 
+
+Warning message:
+this is a <span class="nb">test 
+
+</span>q<span class="o">()</span> <span class="c"># console input</span>
+child process exited with code 0
+bash&gt;
+</code></pre></div></div>
+
+:ET
