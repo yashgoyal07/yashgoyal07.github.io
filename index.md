@@ -38,7 +38,7 @@ I'm software engineer at [Target Corporation](https://www.target.com/) in Banglo
 - Used a Model-View-Controller (MVC) architecture style for better code organization and maintenance.
 - Check out my work on GitHub: [https://github.com/yashgoyal07/contacts_manager](https://github.com/yashgoyal07/contacts_manager)
 
-[Loguwant][https://github.com/yashgoyal07/loguwant]
+[Loguwant](https://github.com/yashgoyal07/loguwant)
 - It's a Python package that enables you to log only what you want. It creates logger, using which you can see the logs of the modules written by you separately.
 - Check out my work on GitHub: [https://pypi.org/project/loguwant/](https://pypi.org/project/loguwant/)
 - Check out my work on GitHub: [https://github.com/yashgoyal07/loguwant](https://github.com/yashgoyal07/loguwant)
