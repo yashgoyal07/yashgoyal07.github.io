@@ -2,7 +2,7 @@
 Software Engineer
 
 ### About me
-I'm software engineer at [Target Corporation](https://www.target.com/) in Banglore, India. I have started my career from [Rhizicube Technologies](https://www.rhizicube.ai/) in Ghaziabad, India. Later, I've joined [Koo India](https://www.kooapp.com/). I graduated from [Kurukshetra University](https://www.kuk.ac.in/) in 2020. I'm a skilled software engineer experienced in Python, Flask, databases (PostgreSQL, Elastic Search, Kafka, Redis), AWS, Docker, and front-end technologies (HTML, CSS, JS, Angular, Plotly). I'm Passionate about developing high-quality software solutions. I am interested in solving real life problems. In addition, I aspire to use my programming skills to solve problems for the general public.
+I'm software engineer at [Target Corporation](https://www.target.com/) in Banglore, India. I have started my career from [Rhizicube Technologies](https://www.rhizicube.ai/) in Ghaziabad, India. Later, I moved to [Koo India](https://www.kooapp.com/). I graduated from [Kurukshetra University](https://www.kuk.ac.in/) in 2020. I'm a skilled software engineer experienced in Python, Flask, databases (PostgreSQL, Elastic Search, Kafka, Redis), AWS, Docker, and front-end technologies (HTML, CSS, JS, Angular, Plotly). I'm Passionate about developing high-quality software solutions. I am interested in solving real life problems. In addition, I aspire to use my programming skills to solve problems for the general public.
 
 ### Experiences
 [Koo India](https://www.kooapp.com/)
